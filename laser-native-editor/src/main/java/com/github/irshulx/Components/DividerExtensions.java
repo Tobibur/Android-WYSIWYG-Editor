@@ -20,15 +20,12 @@ import android.content.Context;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.irshulx.EditorComponent;
 import com.github.irshulx.R;
 import com.github.irshulx.EditorCore;
 import com.github.irshulx.models.EditorContent;
-import com.github.irshulx.models.EditorControl;
 import com.github.irshulx.models.EditorType;
 import com.github.irshulx.models.Node;
 import com.github.irshulx.models.RenderType;

@@ -17,7 +17,6 @@
 package com.github.irshulx.Components;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.text.Editable;
 import android.view.View;
 import android.widget.ImageView;

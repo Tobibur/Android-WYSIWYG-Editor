@@ -19,17 +19,19 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
 import android.text.util.Linkify;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
@@ -404,6 +406,10 @@ public class ImageExtensions extends EditorComponent {
                 int index = editorCore.getParentView().indexOfChild(layout);
                 editorCore.getParentView().removeView(layout);
                 hideInputHint(index);
+
+                EditorControl imgTag = (EditorControl) layout.getTag();
+                String imageLink = imgTag.path;
+                editorCore.getImageRemovedListener().removed(imageLink);
                 componentsWrapper.getInputExtensions().setFocusToPrevious(index);
             }
         });

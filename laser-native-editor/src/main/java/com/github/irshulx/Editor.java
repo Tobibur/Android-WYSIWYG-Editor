@@ -17,15 +17,12 @@ package com.github.irshulx;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.annotation.ColorRes;
 import android.text.Editable;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import com.github.irshulx.Components.CustomEditText;
-import com.github.irshulx.models.EditorControl;
 import com.github.irshulx.models.EditorTextStyle;
 import com.github.irshulx.models.EditorContent;
 import com.github.irshulx.models.RenderType;
@@ -36,11 +33,16 @@ public class Editor extends EditorCore {
     public Editor(Context context, AttributeSet attrs) {
         super(context, attrs);
         super.setEditorListener(null);
+        super.setImageRemovedListener(null);
         //  initialize(context,parentView,renderType,_PlaceHolderText);
     }
 
     public void setEditorListener(EditorListener _listener) {
         super.setEditorListener(_listener);
+    }
+
+    public void setImageRemovedListener(ImageRemovedListener removedListener){
+        super.setImageRemovedListener(removedListener);
     }
 
     public EditorContent getContent() {

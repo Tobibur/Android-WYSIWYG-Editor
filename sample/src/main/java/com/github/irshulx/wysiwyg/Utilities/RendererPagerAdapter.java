@@ -1,9 +1,10 @@
 package com.github.irshulx.wysiwyg.Utilities;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.github.irshulx.wysiwyg.HTMLRenderedFragment;
 import com.github.irshulx.wysiwyg.PreviewFragment;
@@ -17,7 +18,7 @@ public class RendererPagerAdapter extends FragmentPagerAdapter {
     final String content;
     private String tabTitles[] = new String[] { "Rendered", "Serialized", "HTML" };
     private Context context;
-    public RendererPagerAdapter(FragmentManager fm, Context context,String content) {
+    public RendererPagerAdapter(FragmentManager fm, Context context, String content) {
         super(fm);
         this.context = context;
         this.content= content;

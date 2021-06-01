@@ -5,24 +5,16 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.Point;
 import android.graphics.Rect;
 import android.preference.PreferenceManager;
-import android.text.Editable;
-import android.text.Html;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.github.irshulx.Components.ComponentsWrapper;
 import com.github.irshulx.Components.CustomEditText;
@@ -42,7 +34,6 @@ import com.github.irshulx.models.HtmlTag;
 import com.github.irshulx.models.Node;
 import com.github.irshulx.models.Op;
 import com.github.irshulx.models.RenderType;
-import com.google.gson.Gson;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -50,8 +41,6 @@ import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by mkallingal on 4/30/2016.
@@ -70,6 +59,7 @@ public class EditorCore extends LinearLayout implements View.OnTouchListener {
     private MacroExtensions macroExtensions;
     private EditorSettings editorSettings;
     private ComponentsWrapper componentsWrapper;
+    private ImageRemovedListener imageRemovedListener;
 
 
     public EditorCore(Context _context, AttributeSet attrs) {
@@ -266,6 +256,14 @@ public class EditorCore extends LinearLayout implements View.OnTouchListener {
 
     public void setEditorListener(EditorListener _listener) {
         this.listener = _listener;
+    }
+
+    public ImageRemovedListener getImageRemovedListener(){
+        return this.imageRemovedListener;
+    }
+
+    public void setImageRemovedListener(ImageRemovedListener _imageRemovedListener){
+        this.imageRemovedListener = _imageRemovedListener;
     }
 
     /*
